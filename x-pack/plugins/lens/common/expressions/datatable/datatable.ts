@@ -16,12 +16,19 @@ export interface SortingState {
   direction: 'asc' | 'desc' | 'none';
 }
 
+export interface PagingState {
+  size: number;
+  enabled: boolean;
+}
+
 export interface DatatableArgs {
   title: string;
   description?: string;
   columns: ColumnConfigArg[];
   sortingColumnId: SortingState['columnId'];
   sortingDirection: SortingState['direction'];
+  fitRowToContent?: boolean;
+  pageSize?: PagingState['size'];
 }
 
 export const getDatatable = (
@@ -55,6 +62,10 @@ export const getDatatable = (
     },
     sortingDirection: {
       types: ['string'],
+      help: '',
+    },
+    pageSize: {
+      types: ['number'],
       help: '',
     },
   },
