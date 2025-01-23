@@ -64,6 +64,10 @@ export const getDatatable = (
       types: ['string'],
       help: '',
     },
+    fitRowToContent: {
+      types: ['boolean'],
+      help: '',
+    },
     pageSize: {
       types: ['number'],
       help: '',
