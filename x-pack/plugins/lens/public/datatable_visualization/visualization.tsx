@@ -24,6 +24,7 @@ import { getStopsForFixedMode } from '../shared_components';
 import { LayerType, layerTypes } from '../../common';
 import { getDefaultSummaryLabel, PagingState } from '../../common/expressions';
 import type { ColumnState, SortingState } from '../../common/expressions';
+import { DataTableToolbar } from './components/toolbar';
 
 export interface DatatableVisualizationState {
   columns: ColumnState[];
@@ -401,6 +402,15 @@ export const getDatatableVisualization = ({
 
   getErrorMessages(state) {
     return undefined;
+  },
+
+  renderToolbar(domElement, props) {
+    render(
+      <I18nProvider>
+        <DataTableToolbar {...props} />
+      </I18nProvider>,
+      domElement
+    );
   },
 
   onEditAction(state, event) {
